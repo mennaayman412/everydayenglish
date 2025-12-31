@@ -33,4 +33,5 @@
       "09:00 - 10:00 PM": { "status": "booked", "name": "Ahmed Jawad", "id": "Q3D5X", "lvl": "Private", "phone": "2010092718906" },
       "10:00 - 11:00 PM": { "status": "free" }
     }
-  }}
+  }
+}
