@@ -1,0 +1,72 @@
+{
+    "name": "Walaa Mahmoud",
+    "email": "Walaamoahmoud1@gmail.com",
+    "phone": "+20 11 23390602",
+    "ID":"T1",
+    "num_hour_per_day":4,
+    "numDay":6,
+    "level":[2,3],
+    "info": "☀️ Available: 7 PM - 12 AM",
+    "month": "Weekly Schedule - Jan 2026 Week 1 3/1/2026 to 10/1/2026",
+    "schedule": {
+  "Sat": {
+    "11:00 - 12:00 PM": { "status": "free" },
+    "12:00 - 01:00 PM": { "status": "booked", "name": "أحمد طه", "id": "S6W7Y", "lvl": "Level 3", "phone": "201092274386" },
+    "01:00 - 02:00 PM": { "status": "free" },
+    "02:00 - 03:00 PM": { "status": "free" },
+    "05:00 - 06:00 PM": { "status": "booked", "name": "محمد مغربي", "id": "Y9O9N", "lvl": "Level 4", "phone": "966563010064" },
+    "06:00 - 07:00 PM": { "status": "booked", "name": "أروي محمد", "id": "A6M7U", "lvl": "Level 5", "phone": "201117829456" },
+    "07:00 - 08:00 PM": { "status": "free" },
+    "08:00 - 09:00 PM": { "status": "booked", "name": "حسن عيسى", "id": "H4R3A", "lvl": "Level 4", "phone": "201500000000" },
+    "09:00 - 10:00 PM": { "status": "booked", "name": "اسامه رجب", "id": "K2O6N", "lvl": "Level 4", "phone": "201112777641" },
+    "10:00 - 11:00 PM": { "status": "free" },
+    "11:00 - 12:00 AM": { "status": "free" }
+  },
+  "Sun": {
+    "11:00 - 12:00 PM": { "status": "free" },
+    "12:00 - 01:00 PM": { "status": "booked", "name": "أحمد طه", "id": "S6W7Y", "lvl": "Level 3", "phone": "201092274386" },
+    "01:00 - 02:00 PM": { "status": "free" },
+    "02:00 - 03:00 PM": { "status": "free" },
+    "05:00 - 06:00 PM": { "status": "booked", "name": "رضا", "id": "H4R3A", "lvl": "Level 4", "phone": "971567075260" },
+    "07:00 - 08:00 PM": { "status": "booked", "name": "عماد عثمان", "id": "U3O0U", "lvl": "Level 9", "phone": "201019193405" },
+    "08:00 - 09:00 PM": { "status": "booked", "name": "شريف محمد", "id": "D9S3X", "lvl": "Level 5", "phone": "201004444263" },
+    "09:00 - 10:00 PM": { "status": "free" },
+    "10:00 - 11:00 PM": { "status": "booked", "name": "رائف محمد", "id": "M3A7Y", "lvl": "Level 7", "phone": "201271113515" },
+    "11:00 - 12:00 AM": { "status": "booked", "name": "محمد عصام", "id": "B2X4G", "lvl": "Level 6", "phone": "201555503610" }
+  },
+  "Mon": {
+    "05:00 - 06:00 PM": { "status": "booked", "name": "محمد مغربي", "id": "Y9O9N", "lvl": "Level 4", "phone": "966563010064" },
+    "07:00 - 08:00 PM": { "status": "booked", "name": "ابراهيم", "id": "N1V9Y", "lvl": "IELTS", "phone": "201060038009" },
+    "08:00 - 09:00 PM": { "status": "free" },
+    "09:00 - 10:00 PM": { "status": "booked", "name": "أحمد أيمن", "id": "F7Q9C", "lvl": "Level 5", "phone": "201030841226" },
+    "10:00 - 11:00 PM": { "status": "free" },
+    "11:00 - 12:00 AM": { "status": "free" }
+  },
+  "Tue": {
+    "12:00 - 01:00 PM": { "status": "booked", "name": "أحمد طه", "id": "S6W7Y", "lvl": "Level 3", "phone": "201092274386" },
+    "07:00 - 08:00 PM": { "status": "booked", "name": "عماد عثمان", "id": "U3O0U", "lvl": "Level 9", "phone": "201019193405" },
+    "08:00 - 09:00 PM": { "status": "booked", "name": "حسن عيسى", "id": "H4R3A", "lvl": "Level 4", "phone": "201500000000" },
+    "09:00 - 10:00 PM": { "status": "booked", "name": "اسامه رجب", "id": "K2O6N", "lvl": "Level 4", "phone": "201112777641" },
+    "10:00 - 11:00 PM": { "status": "free" },
+    "11:00 - 12:00 AM": { "status": "booked", "name": "محمد عصام", "id": "B2X4G", "lvl": "Level 6", "phone": "201555503610" }
+  },
+  "Wed": {
+    "05:00 - 06:00 PM": { "status": "booked", "name": "رضا", "id": "H4R3A", "lvl": "Level 4", "phone": "971567075260" },
+    "06:00 - 07:00 PM": { "status": "booked", "name": "أروي محمد", "id": "A6M7U", "lvl": "Level 5", "phone": "201117829456" },
+    "07:00 - 08:00 PM": { "status": "booked", "name": "ابراهيم", "id": "N1V9Y", "lvl": "IELTS", "phone": "201060038009" },
+    "08:00 - 09:00 PM": { "status": "free" },
+    "09:00 - 10:00 PM": { "status": "booked", "name": "شريف محمد", "id": "D9S3X", "lvl": "Level 5", "phone": "201004444263" },
+    "10:00 - 11:00 PM": { "status": "booked", "name": "رائف محمد", "id": "M3A7Y", "lvl": "Level 7", "phone": "201271113515" },
+    "11:00 - 12:00 AM": { "status": "free" }
+  },
+  "Fri": {
+    "05:00 - 06:00 PM": { "status": "booked", "name": "محمد مغربي", "id": "Y9O9N", "lvl": "Level 4", "phone": "966563010064" },
+    "06:00 - 07:00 PM": { "status": "booked", "name": "محمد سعد", "id": "I9Z9A", "lvl": "Level 5", "phone": "201010270947" },
+    "07:00 - 08:00 PM": { "status": "free" },
+    "08:00 - 09:00 PM": { "status": "free" },
+    "09:00 - 10:00 PM": { "status": "booked", "name": "أحمد أيمن", "id": "F7Q9C", "lvl": "Level 5", "phone": "201030841226" },
+    "10:00 - 11:00 PM": { "status": "free" },
+    "11:00 - 12:00 AM": { "status": "free" }
+  }
+    }
+}
