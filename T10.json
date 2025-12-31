@@ -32,11 +32,5 @@
       "08:00 - 09:00 PM": { "status": "booked", "name": "Ahmed Abdel Sattar", "id": "D2C0U", "lvl": "Private", "phone": "2012899908884" },
       "09:00 - 10:00 PM": { "status": "booked", "name": "Ahmed Jawad", "id": "Q3D5X", "lvl": "Private", "phone": "2010092718906" },
       "10:00 - 11:00 PM": { "status": "free" }
-    },
-    "Thu": {
-      
-    },
-    "Fri": {
-      
     }
-  }
+  }}
