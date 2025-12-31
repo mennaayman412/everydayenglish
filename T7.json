@@ -17,7 +17,7 @@
     },
     "Sun": {
       "07:00 - 08:00 PM": { "status": "booked", "name": "Sara Hassan", "id": "G6Z7X", "lvl": "Kids Lvl 3", "phone": "966561268291" },
-      "08:00 - 09:00 PM": { "status": "free" },
+      "08:00 - 09:00 PM": {"status": "booked", "name": "Mahmoud Kamal (Engineer)", "id": "A2T3R", "phone": "+201060599975"},
       "09:00 - 10:00 PM": { "status": "booked", "name": "Adam Mohamed", "id": "M2A1B", "lvl": "", "phone": "2010611274663" },
       "10:00 - 11:00 PM": { "status": "booked", "name": "El-Shafei", "id": "Q0E9B", "lvl": "", "phone": "2010998181513" }
     },
@@ -26,7 +26,7 @@
       "04:00 - 05:00 PM": { "status": "booked", "name": "Sara Hassan", "id": "G6Z7X", "lvl": "Kids Lvl 3", "phone": "966561268291" },
       "07:00 - 08:00 PM": { "status": "free" },
       "08:00 - 09:00 PM": { "status": "booked", "name": "Ahmed Ismail", "id": "D4H1X", "lvl": "", "phone": "2012263780254" },
-      "09:00 - 10:00 PM": { "status": "free" },
+      "09:00 - 10:00 PM": {"status": "booked", "name": "Khamis Samir (Agri Eng)", "id": "A6S6P", "phone": "+201003033686"},
       "10:00 - 11:00 PM": { "status": "free" },
       "11:00 - 12:00 AM": { "status": "booked", "name": "Ahmed Zein", "id": "W4O4X", "lvl": "", "phone": "2010254286840" }
     },
@@ -38,16 +38,16 @@
     },
     "Wed": {
       "07:00 - 08:00 PM": { "status": "free" },
-      "08:00 - 09:00 PM": { "status": "free" },
+      "08:00 - 09:00 PM": {"status": "booked", "name": "Mahmoud Kamal (Engineer)", "id": "A2T3R", "phone": "+201060599975"},
       "09:00 - 10:00 PM": { "status": "booked", "name": "Adam Mohamed", "id": "M2A1B", "lvl": "", "phone": "2010611274663" },
       "10:00 - 11:00 PM": { "status": "booked", "name": "El-Shafei", "id": "Q0E9B", "lvl": "", "phone": "2010998181513" },
       "11:00 - 12:00 AM": { "status": "booked", "name": "Ahmed Zein", "id": "W4O4X", "lvl": "", "phone": "2010254286840" }
     },
     "Thu": {
       "03:00 - 04:00 PM": { "status": "booked", "name": "Mohamed & Mawada", "id": "E7Y5J", "lvl": "", "phone": "2010608883453" },
-      "07:00 - 08:00 PM": { "status": "free" },
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Single hour", "id": "", "lvl": "", "phone": "" },
       "08:00 - 09:00 PM": { "status": "booked", "name": "Ahmed Ismail", "id": "D4H1X", "lvl": "", "phone": "2012263780254" },
-      "09:00 - 10:00 PM": { "status": "free" },
+      "09:00 - 10:00 PM": {"status": "booked", "name": "Khamis Samir (Agri Eng)", "id": "A6S6P", "phone": "+201003033686"},
       "10:00 - 11:00 PM": { "status": "free" }
     },
     "Fri": {
