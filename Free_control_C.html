@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <title>Instructor Schedule Search</title>
+     <style>
+        :root { 
+            --primary: #0f172a;
+            --secondary: #dc2626;
+            --accent: #ef4444;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --success: #059669;
+            --bg: #ffffff;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --hover-bg: #f1f5f9;
+            --recommended: #10b981;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif; 
+            background: var(--bg); 
+            padding: 0;
+            margin: 0;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Header Section with Logo */
+        .header-section {
+            background: var(--card-bg);
+            padding: 20px 40px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            background: var(--secondary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 28px;
+            letter-spacing: -1px;
+        }
+        
+        .academy-info {
+            text-align: left;
+        }
+        
+        .academy-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0 0 4px 0;
+            letter-spacing: -0.5px;
+        }
+        
+        .academy-slogan {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin: 0;
+            font-weight: 400;
+        }
+        
+        h1 { 
+            text-align: center; 
+            color: var(--primary); 
+            margin: 0 0 10px 0; 
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        /* Filters Section */
+        .filter-section { 
+            background: var(--card-bg); 
+            padding: 32px; 
+            border-radius: 12px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06); 
+            margin-bottom: 40px; 
+             
+            gap: 24px; 
+            flex-wrap: wrap; 
+            border: 1px solid var(--border); 
+        }
+        
+        .filter-group { 
+            display: flex; 
+            flex-direction: column;
+            gap: 8px; 
+            min-width: 180px;
+        }
+        
+        .filter-group.days-filter { 
+            min-width: auto;
+        }
+        
+        .days-checkboxes { 
+            display: flex; 
+            gap: 8px; 
+            flex-wrap: wrap; 
+        }
+        
+        .day-checkbox { 
+            display: flex; 
+            align-items: center; 
+            gap: 6px; 
+            padding: 8px 12px; 
+            background: var(--bg); 
+            border-radius: 6px; 
+            cursor: pointer; 
+            transition: all 0.2s; 
+            border: 1px solid var(--border); 
+            user-select: none;
+            font-size: 14px;
+        }
+        
+        .day-checkbox:hover { 
+            background: var(--hover-bg);
+            border-color: var(--secondary);
+        }
+        
+        .day-checkbox input[type="checkbox"] { 
+            cursor: pointer; 
+            width: 16px; 
+            height: 16px;
+            accent-color: var(--secondary);
+        }
+        
+        .day-checkbox:has(input[type="checkbox"]:checked) { 
+            background: #fef2f2; 
+            border-color: var(--secondary); 
+            color: var(--secondary);
+            font-weight: 600; 
+        }
+        
+        .filter-section label { 
+            font-weight: 600; 
+            color: var(--text-primary); 
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        
+        .filter-section select { 
+            padding: 10px 12px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border); 
+            background: var(--card-bg); 
+            cursor: pointer; 
+            font-weight: 500;
+            transition: all 0.2s;
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+        
+        .filter-section select:hover {
+            border-color: var(--text-secondary);
+        }
+        
+        .filter-section select:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        }
+        
+        .btn-filter { 
+            background: var(--secondary); 
+            color: white; 
+            border: none; 
+            padding: 12px 32px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: 600; 
+            transition: all 0.2s; 
+            font-size: 14px;
+            align-self: flex-end;
+            margin-top: 24px;
+        }
+        
+        .btn-filter:hover { 
+            background: #b91c1c;
+        }
+        
+        .btn-filter:active {
+            transform: scale(0.98);
+        }
+
+        /* Results Grid */
+        .dashboard { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); 
+            gap: 24px; 
+            width: 100%; 
+        }
+        
+        .teacher-card { 
+            background: var(--card-bg); 
+            border-radius: 12px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06); 
+            padding: 24px; 
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+            position: relative;
+        }
+        
+        .teacher-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .teacher-card.recommended {
+            border: 2px solid var(--recommended);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+        }
+        
+        .recommended-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--recommended);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .recommended-badge::before {
+            content: "⭐";
+            font-size: 14px;
+        }
+        
+        .teacher-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 20px; 
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .teacher-name { 
+            font-size: 18px; 
+            font-weight: 600; 
+            color: var(--primary);
+            letter-spacing: -0.3px;
+        }
+        
+        .view-schedule-btn {
+            background: var(--secondary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .view-schedule-btn:hover {
+            background: #b91c1c;
+        }
+        
+        .view-schedule-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .level-info {
+            background: var(--bg);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .level-text {
+            color: var(--text-primary);
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .availability-info {
+            background: #ecfdf5;
+            border: 1px solid var(--recommended);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .availability-text {
+            color: var(--recommended);
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        .fully-booked-notice {
+            background: #fef3c7;
+            border: 1px solid #fbbf24;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .fully-booked-notice .title {
+            color: #92400e;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 0;
+        }
+        
+        .free-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+        }
+        
+        .free-table td { 
+            padding: 12px 0; 
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .free-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .day-badge { 
+            background: #fef2f2; 
+            color: var(--secondary); 
+            padding: 4px 12px; 
+            border-radius: 6px; 
+            font-weight: 600; 
+            font-size: 13px;
+            display: inline-block;
+        }
+        
+        .time-text { 
+            color: var(--success); 
+            font-weight: 600; 
+            font-size: 14px; 
+            text-align: right;
+        }
+
+        .loading { 
+            text-align: center; 
+            font-size: 16px; 
+            margin: 60px 0; 
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .no-results { 
+            grid-column: 1/-1; 
+            text-align: center; 
+            padding: 60px 40px; 
+            background: var(--card-bg); 
+            border-radius: 12px; 
+            color: var(--text-secondary); 
+            border: 1px solid var(--border);
+            font-size: 16px;
+        }
+        
+        .no-free-slots { 
+            color: var(--text-secondary); 
+            font-style: italic; 
+            text-align: center; 
+            padding: 20px;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 20px 16px; }
+            .header-section { padding: 32px 24px; }
+            .academy-name { font-size: 22px; }
+            .logo { width: 56px; height: 56px; font-size: 24px; }
+            .dashboard { grid-template-columns: 1fr; }
+            .filter-section { padding: 24px 16px; gap: 16px; }
+            .teacher-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .view-schedule-btn { width: 100%; justify-content: center; }
+            h1 { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Logo and Name -->
+        <div class="header-section">
+            <div class="logo-container">
+                <div class="logo"><img src="logo.png" alt="" width="100%" style="border-radius: inherit;"></div>
+                <div class="academy-info">
+                    <h1 class="academy-name">Every Day English </h1>
+                     <h1 class="academy-name">Academy</h1>
+                    <p class="academy-slogan">Professional Language Education</p>
+                </div>
+            </div>
+        </div>
+
+        <h1>Instructor Schedule Search</h1>
+
+        <div class="filter-section">
+        <div class="filter-group">
+            <label>المستوى:</label>
+            <select id="levelFilter">
+                <option value="all">كل المستويات</option>
+                <option value="1">Level 0</option>
+                <option value="1">Level 1</option>
+                <option value="1">Level 2</option>
+                <option value="2">Level 3</option>
+                <option value="2">Level 4</option>
+                <option value="2">Level 5</option>
+                <option value="3">Level 6</option>
+                <option value="3">Level 7</option>
+                <option value="3">Level 8</option>
+                <option value="3">Level 9</option>
+                <option value="3">ILTES</option>
+            </select>
+        </div>
+
+        <div class="filter-group days-filter">
+            <label>الأيام:</label>
+            <div class="days-checkboxes">
+                <label class="day-checkbox">
+                    <input type="checkbox" value="Sat" checked> السبت
+                </label>
+                <label class="day-checkbox">
+                    <input type="checkbox" value="Sun" checked> الأحد
+                </label>
+                <label class="day-checkbox">
+                    <input type="checkbox" value="Mon" checked> الاثنين
+                </label>
+                <label class="day-checkbox">
+                    <input type="checkbox" value="Tue" checked> الثلاثاء
+                </label>
+                <label class="day-checkbox">
+                    <input type="checkbox" value="Wed" checked> الأربعاء
+                </label>
+                <label class="day-checkbox">
+                    <input type="checkbox" value="Thu" checked> الخميس
+                </label>
+                <label class="day-checkbox">
+                    <input type="checkbox" value="Fri" checked> الجمعة
+                </label>
+            </div>
+        </div>
+
+        <div class="filter-group">
+            <label>من:</label>
+            <select id="startTime">
+                <option value="10">10:00 AM</option>
+                <option value="11">11:00 AM</option>
+                <option value="12">12:00 PM</option>
+                <option value="13">01:00 PM</option>
+                <option value="14">02:00 PM</option>
+                <option value="15">03:00 PM</option>
+                <option value="16">04:00 PM</option>
+                <option value="17">05:00 PM</option>
+                <option value="18">06:00 PM</option>
+                <option value="19">07:00 PM</option>
+                <option value="20">08:00 PM</option>
+                <option value="21">09:00 PM</option>
+                <option value="22" selected>10:00 PM</option>
+                <option value="23">11:00 PM</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>إلى:</label>
+            <select id="endTime">
+                <option value="11">11:00 AM</option>
+                <option value="12">12:00 PM</option>
+                <option value="13">01:00 PM</option>
+                <option value="14">02:00 PM</option>
+                <option value="15">03:00 PM</option>
+                <option value="16">04:00 PM</option>
+                <option value="17">05:00 PM</option>
+                <option value="18">06:00 PM</option>
+                <option value="19">07:00 PM</option>
+                <option value="20">08:00 PM</option>
+                <option value="21">09:00 PM</option>
+                <option value="22">10:00 PM</option>
+                <option value="23">11:00 PM</option>
+                <option value="24" selected>12:00 AM</option>
+            </select>
+        </div>
+
+        <button class="btn-filter" onclick="applyFilters()">Search</button>
+    </div>
+    
+    <div id="loading" class="loading">جاري جلب بيانات المدرسين...</div>
+    <div id="dashboard" class="dashboard"></div>
+
+    <script>
+        const teacherIds = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10','T11','T12'];
+        const daysAr = { 
+            "Sat": "Saturday", 
+            "Sun": "Sunday", 
+            "Mon": "Monday", 
+            "Tue": "Tuesday", 
+            "Wed": "Wednesday", 
+            "Thu": "Thursday", 
+            "Fri": "Friday" 
+        };
+        
+        const levelNames = {
+            1: "Beginner",
+            2: "Intermediate",
+            3: "Advanced"
+        };
+        
+        let allTeachersData = [];
+
+        function parseTimeRange(timeStr) {
+            const parts = timeStr.trim().split(':');
+            let hour = parseInt(parts[0]);
+            const period = timeStr.toUpperCase().includes('PM') ? 'PM' : 'AM';
+            
+            if (period === 'PM' && hour !== 12) {
+                hour += 12;
+            } else if (period === 'AM' && hour === 12) {
+                hour = 0;
+            }
+            
+            return hour;
+        }
+
+        function calculateFreeHours(data) {
+            const totalWeeklyHours = (data.num_hour_per_day || 0) * (data.numDay || 0);
+            let bookedHours = 0;
+
+            for (let day in data.schedule) {
+                for (let time in data.schedule[day]) {
+                    const slot = data.schedule[day][time];
+                    if (slot.status === "booked") {
+                        bookedHours += 1;
+                    }
+                }
+            }
+            
+            return totalWeeklyHours - bookedHours;
+        }
+
+        function checkIfFullyBooked(data) {
+            return calculateFreeHours(data) <= 0;
+        }
+
+        async function loadData() {
+            for (let id of teacherIds) {
+                try {
+                    const response = await fetch(`${id}.json`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        allTeachersData.push({ id, data });
+                    }
+                } catch (e) { 
+                    console.error(id + " Error"); 
+                }
+            }
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('dashboard').innerHTML = `<div class="no-results">Welcome! Select level, days, and time, then click "Search" to find available slots.</div>`;
+        }
+
+        function applyFilters() {
+            const selectedLevel = document.getElementById('levelFilter').value;
+            
+            const selectedDays = Array.from(document.querySelectorAll('.day-checkbox input[type="checkbox"]:checked'))
+                .map(cb => cb.value);
+            
+            const startLimit = parseInt(document.getElementById('startTime').value);
+            const endLimit = parseInt(document.getElementById('endTime').value);
+            const dashboard = document.getElementById('dashboard');
+            
+            dashboard.innerHTML = "";
+
+            if (startLimit >= endLimit) {
+                alert("Error: Start time must be before end time!");
+                return;
+            }
+
+            if (selectedDays.length === 0) {
+                dashboard.innerHTML = `<div class="no-results">Please select at least one day!</div>`;
+                return;
+            }
+
+            // Array to store teachers with their free hours
+            let teachersWithHours = [];
+
+            allTeachersData.forEach(item => {
+                const data = item.data;
+                
+                if (selectedLevel !== "all") {
+                    const selectedLevelNum = parseInt(selectedLevel);
+                    
+                    if (Array.isArray(data.level)) {
+                        if (!data.level.includes(selectedLevelNum)) {
+                            return;
+                        }
+                    } else {
+                        if (parseInt(data.level) !== selectedLevelNum) {
+                            return;
+                        }
+                    }
+                }
+
+                const freeHours = calculateFreeHours(data);
+                const isFullyBooked = freeHours <= 0;
+
+                let matchedSlots = [];
+
+                if (!isFullyBooked) {
+                    for (let day in data.schedule) {
+                        if (!selectedDays.includes(day)) continue;
+
+                        for (let timeStr in data.schedule[day]) {
+                            if (data.schedule[day][timeStr].status === "free") {
+                                const slotStart = parseTimeRange(timeStr);
+                                
+                                let inRange = false;
+                                
+                                if (endLimit === 24) {
+                                    inRange = slotStart >= startLimit && slotStart <= 23;
+                                } else {
+                                    inRange = slotStart >= startLimit && slotStart < endLimit;
+                                }
+                                
+                                if (inRange) {
+                                    matchedSlots.push({ day: daysAr[day] || day, time: timeStr });
+                                }
+                            }
+                        }
+                    }
+                }
+
+                teachersWithHours.push({
+                    item: item,
+                    freeHours: freeHours,
+                    isFullyBooked: isFullyBooked,
+                    matchedSlots: matchedSlots
+                });
+            });
+
+            // Sort by free hours descending (highest availability first)
+            teachersWithHours.sort((a, b) => b.freeHours - a.freeHours);
+
+            // Render cards (skip fully booked instructors)
+            teachersWithHours.forEach((teacher, index) => {
+                const item = teacher.item;
+                const data = item.data;
+                const freeHours = teacher.freeHours;
+                const isFullyBooked = teacher.isFullyBooked;
+                const matchedSlots = teacher.matchedSlots;
+
+                // Skip fully booked instructors
+                if (isFullyBooked) {
+                    return;
+                }
+
+                const isRecommended = index < 2; // First two available instructors
+
+                const card = document.createElement('div');
+                card.className = isRecommended ? 'teacher-card recommended' : 'teacher-card';
+                
+                const teacherNumber = item.id.replace('T', '');
+
+                const slotsHTML = matchedSlots.length > 0 ? 
+                    `<table class="free-table">
+                        <tbody>
+                            ${matchedSlots.map(s => `<tr><td><span class="day-badge">${s.day}</span></td><td class="time-text">${s.time}</td></tr>`).join('')}
+                        </tbody>
+                    </table>` 
+                    : '<div class="no-free-slots">No available slots in the selected time range</div>';
+
+                card.innerHTML = `
+                    ${isRecommended ? '<div class="recommended-badge">Recommended</div>' : ''}
+                    <div class="teacher-header">
+                        <span class="teacher-name">Instructor ${data.name}</span>
+                        <a href="schudual_C.html?id=${teacherNumber}" class="view-schedule-btn">
+                            View Schedule
+                        </a>
+                    </div>
+                    
+                    <div class="level-info">
+                        <span class="level-text">
+                            Level: ${Array.isArray(data.level) 
+                                ? data.level.map(l => levelNames[l] || 'Level ' + l).join(' - ') 
+                                : (data.level !== undefined ? (levelNames[data.level] || 'Level ' + data.level) : 'Not Specified')}
+                        </span>
+                        <span class="level-text" style="margin-right: 16px; color: var(--text-secondary);">
+                            كود المحاضر: ${item.id}
+                        </span>
+                    </div>
+                    
+                    <div class="availability-info">
+                        <span class="availability-text">${freeHours} Available Hours</span>
+                    </div>
+                    
+                    ${slotsHTML}
+                `;
+                dashboard.appendChild(card);
+            });
+
+            if (dashboard.innerHTML === "") {
+                dashboard.innerHTML = `<div class="no-results">No results match your current selections.</div>`;
+            }
+        }
+
+        window.onload = loadData;
+    </script>
+</body>
+</html>

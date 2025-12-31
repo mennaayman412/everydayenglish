@@ -1,0 +1,58 @@
+{
+  "name": "Norhan",
+  "email": "Normohame822@gmail.com",
+  "phone": "+20 11 48455715",
+  "ID":"T7",
+  "num_hour_per_day":4,
+  "numDay":6,
+  "level":[1,2],
+  "month": "Weekly Schedule - Jan 2026 - Week 1 [3/1/2026 to 10/1/2026]",
+  "info": "🎓 Professional Tutor | ☀️ Evening Shift: 7 PM - 11 PM Free Slots",
+  "schedule": {
+    "Sat": {
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Khaled Mostafa", "id": "S6Z4H", "lvl": "", "phone": "2011142791112" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Adel", "id": "I7L8O", "lvl": "", "phone": "2010088019722" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "Mohamed Hassan", "id": "E3J2Y", "lvl": "", "phone": "201222025684" },
+      "10:00 - 11:00 PM": { "status": "free" }
+    },
+    "Sun": {
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Sara Hassan", "id": "G6Z7X", "lvl": "Kids Lvl 3", "phone": "966561268291" },
+      "08:00 - 09:00 PM": { "status": "free" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "Adam Mohamed", "id": "M2A1B", "lvl": "", "phone": "2010611274663" },
+      "10:00 - 11:00 PM": { "status": "booked", "name": "El-Shafei", "id": "Q0E9B", "lvl": "", "phone": "2010998181513" }
+    },
+    "Mon": {
+      "03:00 - 04:00 PM": { "status": "booked", "name": "Mohamed & Mawada", "id": "E7Y5J", "lvl": "", "phone": "2010608883453" },
+      "04:00 - 05:00 PM": { "status": "booked", "name": "Sara Hassan", "id": "G6Z7X", "lvl": "Kids Lvl 3", "phone": "966561268291" },
+      "07:00 - 08:00 PM": { "status": "free" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Ahmed Ismail", "id": "D4H1X", "lvl": "", "phone": "2012263780254" },
+      "09:00 - 10:00 PM": { "status": "free" },
+      "10:00 - 11:00 PM": { "status": "free" },
+      "11:00 - 12:00 AM": { "status": "booked", "name": "Ahmed Zein", "id": "W4O4X", "lvl": "", "phone": "2010254286840" }
+    },
+    "Tue": {
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Khaled Mostafa", "id": "S6Z4H", "lvl": "", "phone": "2011142791112" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Adel", "id": "I7L8O", "lvl": "", "phone": "2010088019722" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "Mohamed Hassan", "id": "E3J2Y", "lvl": "", "phone": "201222025684" },
+      "10:00 - 11:00 PM": { "status": "free" }
+    },
+    "Wed": {
+      "07:00 - 08:00 PM": { "status": "free" },
+      "08:00 - 09:00 PM": { "status": "free" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "Adam Mohamed", "id": "M2A1B", "lvl": "", "phone": "2010611274663" },
+      "10:00 - 11:00 PM": { "status": "booked", "name": "El-Shafei", "id": "Q0E9B", "lvl": "", "phone": "2010998181513" },
+      "11:00 - 12:00 AM": { "status": "booked", "name": "Ahmed Zein", "id": "W4O4X", "lvl": "", "phone": "2010254286840" }
+    },
+    "Thu": {
+      "03:00 - 04:00 PM": { "status": "booked", "name": "Mohamed & Mawada", "id": "E7Y5J", "lvl": "", "phone": "2010608883453" },
+      "07:00 - 08:00 PM": { "status": "free" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Ahmed Ismail", "id": "D4H1X", "lvl": "", "phone": "2012263780254" },
+      "09:00 - 10:00 PM": { "status": "free" },
+      "10:00 - 11:00 PM": { "status": "free" }
+    },
+    "Fri": {
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Sara Hassan", "id": "G6Z7X", "lvl": "Kids Lvl 3", "phone": "966561268291" }
+      
+    }
+  }
+}

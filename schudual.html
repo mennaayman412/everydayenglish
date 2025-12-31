@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Professional Teacher Schedule - Level Analytics</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        :root { --primary: #2c3e50; --booked: #ff7675; --free: #55efc4; --na: #2d3436; --accent: #3498db; --privacy: #e67e22; --bg: #f1f2f6; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        
+        #capture-area { background: white; padding: 35px; border-radius: 20px; width: 1250px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); position: relative; }
+        
+        .header-main { display: flex; justify-content: space-between; border-bottom: 4px solid var(--primary); padding-bottom: 20px; margin-bottom: 20px; }
+        .info-left h1 { margin: 0; color: var(--primary); font-size: 32px; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .stats-bar { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
+        .stat-item { background: #f8fafc; padding: 8px 15px; border-radius: 8px; font-size: 13px; font-weight: bold; color: var(--primary); border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 5px; }
+        .stat-item.highlight { background: #ebf8ff; border-color: var(--accent); color: var(--accent); }
+        .stat-item.danger { color: #d63031; background: #fff5f5; border-color: #feb2b2; }
+        .stat-item.success { color: #1b8d4e; background: #f0fff4; border-color: #9ae6b4; }
+        .stat-item.complete { color: #2980b9; background: #e1f5fe; border-color: #81d4fa; }
+
+        .info-right { text-align: right; font-size: 14px; line-height: 1.6; }
+        .teaching-info { margin-top: 10px; background: #fff9e6; padding: 10px; border-radius: 8px; border: 1px solid #ffeaa7; color: #d35400; font-weight: bold; }
+        .level-badge { display: inline-block; background: var(--primary); color: white; padding: 4px 10px; border-radius: 6px; font-size: 12px; margin-right: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+        .table-wrapper { position: relative; overflow: visible; min-height: 650px; margin-top: 30px; padding-top: 65px; }
+        table { width: 100%; border-collapse: separate; border-spacing: 4px; table-layout: fixed; }
+        
+        #draggableHeader {
+            position: absolute; left: 0; right: 0; top: 0; z-index: 1000;
+            background: var(--primary); border-radius: 8px; cursor: move;
+            user-select: none; display: flex; transition: box-shadow 0.2s;
+            height: 55px; align-items: center;
+        }
+        #draggableHeader.dragging { cursor: grabbing; box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
+        
+        .header-cell { flex: 1; color: white; padding: 10px; text-align: center; font-weight: bold; font-size: 13px; border-right: 1px solid rgba(255,255,255,0.2); }
+        .header-cell:first-child { background: #2d3436; flex: 0 0 150px; border-radius: 8px 0 0 8px; }
+        .header-cell:last-child { border-right: none; border-radius: 0 8px 8px 0; }
+        
+        .time-label { background: #dfe6e9; color: #2c3e50; font-weight: bold; width: 150px; border-radius: 8px; font-size: 11px; text-align: center; }
+        td { padding: 8px; text-align: center; border-radius: 8px; height: 55px; vertical-align: middle; position: relative; }
+        
+        .booked { background: #fff5f5; color: #d63031; border-left: 6px solid #ff7675; font-size: 13px; font-weight: bold; cursor: pointer; }
+        .student-id { display: block; font-size: 9px; color: #ffffff; background: #e74c3c; width: fit-content; margin: 0 auto 3px auto; padding: 1px 5px; border-radius: 4px; }
+        .free { background: #f0fff4; color: #1b8d4e; border: 1px dashed #55efc4; font-size: 11px; font-weight: bold; }
+        .na { background: var(--na); opacity: 0.1; }
+
+        .privacy-hidden span, .privacy-hidden .student-id { visibility: hidden !important; }
+        .privacy-hidden::after { content: "BOOKED"; visibility: visible; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 11px; color: #d63031; font-weight: bold; }
+
+        .controls { margin-bottom: 20px; display: flex; gap: 10px; align-items: center; position: sticky; top: 0; z-index: 200; background: var(--bg); padding: 10px; width: 100%; justify-content: center; }
+        .btn { padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; color: white; transition: 0.3s; }
+        .btn-load { background: var(--primary); }
+        .btn-privacy { background: var(--privacy); }
+        .download-btn { margin: 25px 0; padding: 15px 45px; background: var(--accent); color: white; border: none; border-radius: 50px; cursor: pointer; font-size: 18px; font-weight: bold; }
+        input { padding: 10px; border-radius: 8px; border: 1px solid #ccc; width: 150px; }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <label>Teacher Code: </label>
+        <input type="text" id="teacherIdInput" placeholder="e.g., T1">
+        <button class="btn btn-load" onclick="loadTeacherData()">Show Schedule</button>
+        <button id="privacyBtn" class="btn btn-privacy" onclick="togglePrivacy()">🔒 Enable Privacy</button>
+    </div>
+
+    <div id="capture-area">
+        <div class="header-main">
+            <div class="info-left">
+                <h1 id="teacherName">Select a Teacher</h1>
+                <div class="stats-bar" id="statsBar"></div>
+                <div class="teaching-info" id="teachingInfo"></div>
+            </div>
+            <div class="info-right" id="contactInfo"></div>
+        </div>
+        
+        <div class="table-wrapper">
+            <div id="draggableHeader">
+                <div class="header-cell">Time Slot</div>
+                <div class="header-cell">Saturday</div>
+                <div class="header-cell">Sunday</div>
+                <div class="header-cell">Monday</div>
+                <div class="header-cell">Tuesday</div>
+                <div class="header-cell">Wednesday</div>
+                <div class="header-cell">Thursday</div>
+                <div class="header-cell">Friday</div>
+            </div>
+            
+            <table id="scheduleTable">
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <button class="download-btn" onclick="downloadImage()">⬇️ Download Schedule as Image</button>
+
+    <script>
+        const timeSlots = [
+            "10:00 - 11:00 AM", "11:00 - 12:00 PM", "12:00 - 01:00 PM", "01:00 - 02:00 PM", 
+            "02:00 - 03:00 PM", "03:00 - 04:00 PM", "04:00 - 05:00 PM", "05:00 - 06:00 PM", 
+            "06:00 - 07:00 PM", "07:00 - 08:00 PM", "08:00 - 09:00 PM", "09:00 - 10:00 PM", 
+            "10:00 - 11:00 PM", "11:00 - 12:00 AM"
+        ];
+        const days = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+        let isPrivacyEnabled = false, isDragging = false, startY = 0, startTop = 0;
+        
+        const draggableHeader = document.getElementById('draggableHeader');
+        const wrapper = document.querySelector('.table-wrapper');
+
+        draggableHeader.addEventListener('mousedown', (e) => { 
+            isDragging = true; startY = e.clientY; startTop = draggableHeader.offsetTop; 
+            draggableHeader.classList.add('dragging'); e.preventDefault(); 
+        });
+
+        document.addEventListener('mousemove', (e) => { 
+            if (!isDragging) return; 
+            const deltaY = e.clientY - startY; 
+            let newTop = Math.max(0, Math.min(startTop + deltaY, wrapper.scrollHeight - 55)); 
+            draggableHeader.style.top = newTop + 'px'; 
+        });
+
+        document.addEventListener('mouseup', () => { isDragging = false; draggableHeader.classList.remove('dragging'); });
+
+        async function loadTeacherData() {
+            const id = document.getElementById('teacherIdInput').value.trim();
+            if (!id) return;
+            try {
+                const res = await fetch(`${id}.json`);
+                if (!res.ok) throw new Error();
+                const data = await res.json();
+                renderTeacher(data);
+            } catch (e) { alert("Error loading data."); }
+        }
+
+        function renderTeacher(data) {
+            let blocked = 0;
+            days.forEach(d => { if(data.schedule[d]) Object.values(data.schedule[d]).forEach(s => { if(s.status === 'booked') blocked++; })});
+
+            const nDay = data.numDay || 0;
+            const nHour = data.num_hour_per_day || 0;
+            const total = nDay * nHour;
+            const free = total - blocked;
+
+            // Mapping Numbers to Text
+            const levelMap = { 1: "Beginner", 2: "Intermediate", 3: "Advanced" };
+
+            let statusBadge = free === 0 ? `<span class="stat-item complete">✅ Status: Complete</span>` : 
+                             free < 0 ? `<span class="stat-item danger">⚠️ Overtime: ${Math.abs(free)} Hrs</span>` : 
+                             `<span class="stat-item success">✅ Remaining: ${free} Hours</span>`;
+
+            document.getElementById('teacherName').innerText = data.name;
+            
+            // Render Levels as text
+            const levels = data.level ? data.level.map(l => 
+                `<span class="level-badge">${levelMap[l] || 'Level ' + l}</span>`
+            ).join('') : '';
+            
+            document.getElementById('teachingInfo').innerHTML = levels + " " + data.info;
+            document.getElementById('contactInfo').innerHTML = `<div>📧 ${data.email}</div><div>📞 ${data.phone}</div><div style="color:var(--accent); font-weight:bold;">${data.month}</div>`;
+
+            document.getElementById('statsBar').innerHTML = `
+                <span class="stat-item">📅 Days: ${nDay}</span>
+                <span class="stat-item">⏱️ Hrs/Day: ${nHour}</span>
+                <span class="stat-item highlight">📊 Total: ${total}</span>
+                <span class="stat-item danger">🚫 Booked: ${blocked}</span>
+                ${statusBadge}
+            `;
+
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = "";
+            timeSlots.forEach(time => {
+                let row = document.createElement('tr');
+                let html = `<td class="time-label">${time}</td>`;
+                days.forEach(day => {
+                    const cell = (data.schedule[day] && data.schedule[day][time]) || { status: 'na' };
+                    if (cell.status === 'booked') {
+                        html += `<td class="booked ${isPrivacyEnabled ? 'privacy-hidden' : ''}" onclick="window.open('https://wa.me/${cell.phone.replace(/\D/g,'')}')">
+                                    ${cell.id ? `<span class="student-id">${cell.id}</span>` : ''}
+                                    <span>${cell.name}</span>
+                                 </td>`;
+                    } else if (cell.status === 'free') {
+                        html += `<td class="free">FREE</td>`;
+                    } else { html += `<td class="na"></td>`; }
+                });
+                row.innerHTML = html;
+                tbody.appendChild(row);
+            });
+        }
+
+        function togglePrivacy() { isPrivacyEnabled = !isPrivacyEnabled; loadTeacherData(); }
+
+        function downloadImage() {
+            html2canvas(document.getElementById('capture-area'), { scale: 2 }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `Schedule.png`;
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>

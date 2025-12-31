@@ -1,0 +1,93 @@
+{
+  "name": "Nada Sayed",
+  "email": "nadosayed573@gmail.com",
+  "phone": "+20 10 91556676",
+  "ID":"T3",
+  "num_hour_per_day":6,
+  "numDay":6,
+  "level":[1,2,3],
+  "info": "☀️ Available: 10 PM - 3 AM & 6 PM - 11 PM " ,
+  "month": "Weekly Schedule - Jan 2026 Week 1 3/1/2026 to 10/1/2026",
+  "schedule": {
+    "Sat": {
+      "10:00 - 11:00 AM": { "status": "booked", "name": "سامح محمود", "id": "H4U1V", "lvl": "4", "phone": "201019560019" },
+      "11:00 - 12:00 PM": { "status": "booked", "name": "محمد مجدى", "id": "X8E0E", "lvl": "1", "phone": "201020251833" },
+      "12:00 - 01:00 PM": { "status": "booked", "name": "سماح", "id": "O9D0I", "lvl": "0", "phone": "201553477999" },
+      "01:00 - 02:00 PM": { "status": "booked", "name": "محمد اشرف", "id": "M0Q6U", "lvl": "5", "phone": "20103501872" },
+      "02:00 - 03:00 PM": { "status": "booked", "name": "عبدالله", "id": "C9X1Q", "lvl": "2", "phone": "201285716401" },
+      "04:00 - 05:00 PM": { "status": "booked", "name": "هشام محمد", "id": "J7Q3J", "lvl": "2", "phone": "201220020078" },
+      "06:00 - 07:00 PM": { "status": "free" },
+      "07:00 - 08:00 PM": { "status": "booked", "name": "أحمد حسن", "id": "E1R3Z", "lvl": "0", "phone": "972567445543" },
+      "08:00 - 09:00 PM":{ "status": "booked", "name": "Conversation Level 0 , 1", "id": "", "lvl": "", "phone": "" }, 
+      "09:00 - 10:00 PM": { "status": "booked", "name": "عمرو حسام", "id": "Q9T2K", "lvl": "3", "phone": "201115098340" },
+      "10:00 - 11:00 PM": { "status": "booked", "name": "اسلام", "id": "S0Q3O", "lvl": "1", "phone": "201016838003" }
+    },
+    "Sun": {
+      "10:00 - 11:00 AM": { "status": "free" },
+      "11:00 - 12:00 PM": { "status": "free" },
+      "12:00 - 01:00 PM": { "status": "free" },
+      "01:00 - 02:00 PM": { "status": "booked", "name": "أحمد محمد", "id": "IDE0A", "lvl": "5", "phone": "201114777547" },
+      "02:00 - 03:00 PM": { "status": "free" },
+      "03:00 - 04:00 PM": { "status": "booked", "name": "عمرو أمين", "id": "9BW3H", "lvl": "2", "phone": "201011495908" },
+      "06:00 - 07:00 PM": { "status": "free" },
+      "07:00 - 08:00 PM": { "status": "free" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "اسامه زهران", "id": "A3T84", "lvl": "2", "phone": "201012225292" },
+      
+      "09:00 - 10:00 PM": { "status": "booked", "name": "سعد الشحات", "id": "5DS5Q", "lvl": "4", "phone": "201091049908" },
+      "10:00 - 11:00 PM": { "status": "booked", "name": "اسلام", "id": "3JS0Q", "lvl": "1", "phone": "201016838003" }
+    },
+    "Mon": {
+      "10:00 - 11:00 AM": { "status": "booked", "name": "منصور مكاوي", "id": "3OIDX", "lvl": "0", "phone": "201111573012" },
+      "11:00 - 12:00 PM": { "status": "free" },
+       "12:00 - 01:00 PM": { "status": "free" },
+        "01:00 - 02:00 PM": { "status": "free" },
+        "02:00 - 03:00 PM": { "status": "free" },
+      "06:00 - 07:00 PM": { "status": "free" },
+      "07:00 - 08:00 PM": { "status": "free" },
+      "08:00 - 09:00 PM": { "status": "free" },
+      "09:00 - 10:00 PM":  { "status": "booked", "name": "أحمد ابواليزيد", "id": "E1R3Z", "lvl": "3", "phone": "201060101694" },
+      "10:00 - 11:00 PM": { "status": "booked", "name": "اسلام", "id": "9U1LS", "lvl": "1", "phone": "201016838003" }
+    },
+    "Tue": {
+    "10:00 - 11:00 AM": { "status": "free" },
+      "11:00 - 12:00 PM": { "status": "booked", "name": "محمد مجدى", "id": "X8E0E", "lvl": "1", "phone": "201020251833" },
+      "12:00 - 01:00 PM": { "status": "booked", "name": "سماح", "id": "O9D0I", "lvl": "0", "phone": "201553477999" },
+      "01:00 - 02:00 PM": { "status": "booked", "name": "محمد اشرف", "id": "M0Q6U", "lvl": "5", "phone": "20103501872" },
+      "02:00 - 03:00 PM": { "status": "booked", "name": "عبدالله", "id": "C9X1Q", "lvl": "2", "phone": "201285716401" },
+      "04:00 - 05:00 PM": { "status": "booked", "name": "هشام محمد", "id": "J7Q3J", "lvl": "2", "phone": "201220020078" },
+      "06:00 - 07:00 PM": { "status": "free" },
+      "07:00 - 08:00 PM": { "status": "booked", "name": "أحمد حسن", "id": "E1R3Z", "lvl": "0", "phone": "972567445543" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Conversation Level 3", "id": "", "lvl": "Level 3", "phone": "972567445543" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "عمرو حسام", "id": "Q9T2K", "lvl": "3", "phone": "201115098340" },
+      "10:00 - 11:00 PM": { "status": "free" }
+
+    },
+    "Wed": {
+    "10:00 - 11:00 AM": { "status": "free" },
+      "11:00 - 12:00 PM": { "status": "free" },
+      "12:00 - 01:00 PM": { "status": "free" },
+      "01:00 - 02:00 PM": { "status": "booked", "name": "أحمد محمد", "id": "IDE0A", "lvl": "5", "phone": "201114777547" },
+      "02:00 - 03:00 PM": { "status": "free" },
+      "03:00 - 04:00 PM": { "status": "booked", "name": "عمرو أمين", "id": "9BW3H", "lvl": "2", "phone": "201011495908" },
+      "06:00 - 07:00 PM": { "status": "free" },
+      "07:00 - 08:00 PM": { "status": "free" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "اسامه زهران", "id": "A3T84", "lvl": "2", "phone": "201012225292" },
+    
+      "09:00 - 10:00 PM": { "status": "booked", "name": "سعد الشحات", "id": "5DS5Q", "lvl": "4", "phone": "201091049908" },
+      "10:00 - 11:00 PM": { "status": "free" }
+    },
+    "Thu": {
+      "10:00 - 11:00 AM": { "status": "booked", "name": "منصور مكاوي", "id": "3OIDX", "lvl": "0", "phone": "201111573012" },
+      "11:00 - 12:00 PM": { "status": "booked", "name": "سامح محمود", "id": "H4U1V", "lvl": "4", "phone": "201019560019" },
+        "12:00 - 01:00 PM": { "status": "free" },
+      "01:00 - 02:00 PM": { "status": "free" },
+      "02:00 - 03:00 PM": { "status": "free" },
+      "06:00 - 07:00 PM": { "status": "free" },
+      "07:00 - 08:00 PM": { "status": "free" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Conversation Level 2", "id": "", "lvl": "Level 3", "phone": "" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "أحمد ابواليزيد", "id": "E1R3Z", "lvl": "3", "phone": "201060101694" },
+      "10:00 - 11:00 PM": { "status": "free" }
+    }
+   
+  }
+}

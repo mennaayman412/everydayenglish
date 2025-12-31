@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منظم الكورسات والحافظة</title>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2ecc71;
+            --danger-color: #e74c3c;
+            --bg-color: #f4f7f9;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+            gap: 20px;
+            flex-wrap: wrap; /* لضمان التجاوب مع الموبايل */
+        }
+        .container, .saved-messages {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+        .container { max-width: 500px; }
+        .saved-messages { max-width: 350px; max-height: 80vh; overflow-y: auto; }
+        
+        h2, h3 { text-align: center; color: #333; margin-top: 0; }
+        .input-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
+        input, select {
+            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;
+            box-sizing: border-box; font-size: 14px; background-color: #fff;
+        }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+        
+        .btn-group { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        button {
+            flex: 1; padding: 12px; border: none; border-radius: 8px;
+            cursor: pointer; font-weight: bold; transition: 0.3s; min-width: 100px;
+        }
+        .gen-btn { background-color: var(--primary-color); color: white; }
+        .copy-btn { background-color: var(--secondary-color); color: white; }
+        .save-btn { background-color: #f39c12; color: white; }
+        button:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        #output {
+            margin-top: 20px; padding: 15px; background: #f9f9f9;
+            border: 2px dashed #4a90e2; border-radius: 8px; white-space: pre-line;
+            display: none; color: #333; line-height: 1.6;
+        }
+
+        /* تنسيق الرسائل المحفوظة */
+        .message-card {
+            background: #fff; border: 1px solid #eee; padding: 12px;
+            border-radius: 10px; margin-bottom: 10px; position: relative;
+            font-size: 13px; border-right: 4px solid var(--primary-color);
+        }
+        .message-card p { margin: 0 0 8px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: bold; }
+        .card-btns { display: flex; gap: 5px; }
+        .card-btns button { padding: 5px; font-size: 11px; flex: 1; }
+        .del-btn { background: var(--danger-color); color: white; }
+        
+        .success-badge { color: #27ae60; text-align: center; font-size: 14px; margin-top: 10px; display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>📝 تجهيز بيانات الكورس</h2>
+    
+    <div class="input-group">
+        <label>اسم العميل (الطالب):</label>
+        <input type="text" id="clientName" placeholder="أدخل اسم العميل">
+    </div>
+
+    <div class="grid">
+        <div class="input-group">
+            <label>اسم المحاضر:</label>
+            <input type="text" id="lectureName" placeholder="مثال: د. محمد">
+        </div>
+        <div class="input-group">
+            <label>المستوى:</label>
+            <select id="level">
+                <option value="">اختر المستوى</option>
+                <option>الأول</option><option>الثاني</option><option>الثالث</option>
+                <option>الرابع</option><option>الخامس</option><option>السادس</option>
+                <option>السابع</option><option>الثامن</option><option>التاسع</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="input-group">
+        <label>تاريخ البدء:</label>
+        <input type="date" id="startDate">
+    </div>
+
+    <div style="border-top: 1px solid #eee; margin: 15px 0; padding-top: 10px;">
+        <label>مواعيد المحاضرات (3 أيام):</label>
+        <div class="grid">
+            <select id="day1"><option value="">اليوم</option><option>السبت</option><option>الأحد</option><option>الاثنين</option><option>الثلاثاء</option><option>الأربعاء</option><option>الخميس</option><option>الجمعة</option></select>
+            <select id="time1" class="time-select"></select>
+            <select id="day2"><option value="">اليوم</option><option>السبت</option><option>الأحد</option><option>الاثنين</option><option>الثلاثاء</option><option>الأربعاء</option><option>الخميس</option><option>الجمعة</option></select>
+            <select id="time2" class="time-select"></select>
+            <select id="day3"><option value="">اليوم</option><option>السبت</option><option>الأحد</option><option>الاثنين</option><option>الثلاثاء</option><option>الأربعاء</option><option>الخميس</option><option>الجمعة</option></select>
+            <select id="time3" class="time-select"></select>
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <button class="gen-btn" onclick="generateMessage()">توليد الرسالة ✨</button>
+        <button class="copy-btn" onclick="copyText()">نسخ النص 📋</button>
+        <button class="save-btn" onclick="saveMessage()">حفظ بالحافظة 💾</button>
+    </div>
+
+    <div id="output"></div>
+    <div id="status" class="success-badge">✅ تم نسخ النص بنجاح!</div>
+</div>
+
+<div class="saved-messages">
+    <h3>📋 الرسائل المحفوظة</h3>
+    <div id="messagesList">
+        </div>
+</div>
+
+<script>
+    function fillTimeSlots() {
+        const selects = document.querySelectorAll('.time-select');
+        const times = ["10:00 ص", "11:00 ص", "12:00 م"];
+        for(let i=1; i<=10; i++) times.push(`${i}:00 م`);
+
+        selects.forEach(select => {
+            select.innerHTML = '<option value="">الساعة</option>';
+            times.forEach(t => {
+                let opt = document.createElement('option');
+                opt.value = t; opt.innerText = t;
+                select.appendChild(opt);
+            });
+        });
+        loadSavedMessages();
+    }
+
+    window.onload = fillTimeSlots;
+
+    function generateMessage() {
+        const client = document.getElementById('clientName').value;
+        const lecture = document.getElementById('lectureName').value;
+        const level = document.getElementById('level').value;
+        const date = document.getElementById('startDate').value;
+        const d1 = document.getElementById('day1').value, t1 = document.getElementById('time1').value;
+        const d2 = document.getElementById('day2').value, t2 = document.getElementById('time2').value;
+        const d3 = document.getElementById('day3').value, t3 = document.getElementById('time3').value;
+
+        if(!client) { alert("يرجى إدخال اسم العميل"); return; }
+
+        const formattedDate = date ? new Date(date).toLocaleDateString('ar-EG', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : "لم يحدد";
+
+        const fullMessage = `أهلاً بك أ/ ${client} 🌹
+
+تفاصيل الكورس الخاص بك:
+📘 المحاضر: ${lecture || 'لم يحدد'}
+🎓 المستوى: ${level || 'غير محدد'}
+
+📅 مواعيد المحاضرات:
+- ${d1 || '---'}: ${t1 || '---'}
+- ${d2 || '---'}: ${t2 || '---'}
+- ${d3 || '---'}: ${t3 || '---'}
+
+📌 تاريخ البدء: ${formattedDate}
+
+بالتوفيق لك، وإن شاء الله تكون بداية موفقة 👏✨`;
+
+        const outputDiv = document.getElementById('output');
+        outputDiv.innerText = fullMessage;
+        outputDiv.style.display = 'block';
+    }
+
+    function copyText(customText = null) {
+        const text = customText || document.getElementById('output').innerText;
+        if(!text) { alert("لا يوجد نص لنسخه"); return; }
+        
+        navigator.clipboard.writeText(text).then(() => {
+            const status = document.getElementById('status');
+            status.style.display = 'block';
+            setTimeout(() => status.style.display = 'none', 2000);
+        });
+    }
+
+    // وظائف الحافظة
+    function saveMessage() {
+        const text = document.getElementById('output').innerText;
+        const client = document.getElementById('clientName').value;
+        if(!text) { alert("قم بتوليد رسالة أولاً"); return; }
+
+        const messages = JSON.parse(localStorage.getItem('myMessages') || '[]');
+        messages.unshift({ id: Date.now(), title: `كورس أ/ ${client}`, content: text });
+        localStorage.setItem('myMessages', JSON.stringify(messages));
+        loadSavedMessages();
+    }
+
+    function loadSavedMessages() {
+        const list = document.getElementById('messagesList');
+        const messages = JSON.parse(localStorage.getItem('myMessages') || '[]');
+        list.innerHTML = messages.length === 0 ? '<p style="text-align:center; color:#999;">لا يوجد رسائل محفوظة</p>' : '';
+        
+        messages.forEach(msg => {
+            const card = document.createElement('div');
+            card.className = 'message-card';
+            card.innerHTML = `
+                <p>${msg.title}</p>
+                <div class="card-btns">
+                    <button class="copy-btn" onclick="copySaved('${msg.id}')">نسخ 📋</button>
+                    <button class="del-btn" onclick="deleteMessage('${msg.id}')">حذف 🗑️</button>
+                </div>
+            `;
+            list.appendChild(card);
+        });
+    }
+
+    function copySaved(id) {
+        const messages = JSON.parse(localStorage.getItem('myMessages') || '[]');
+        const msg = messages.find(m => m.id == id);
+        if(msg) copyText(msg.content);
+    }
+
+    function deleteMessage(id) {
+        let messages = JSON.parse(localStorage.getItem('myMessages') || '[]');
+        messages = messages.filter(m => m.id != id);
+        localStorage.setItem('myMessages', JSON.stringify(messages));
+        loadSavedMessages();
+    }
+</script>
+
+</body>
+</html>

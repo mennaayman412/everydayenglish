@@ -1,0 +1,59 @@
+{
+  "name": "Amira",
+  "email": "merooabd29@gmail.com",
+  "phone": "+20 10 62442429",
+  "ID":"T9",
+  "month": "Weekly Schedule - Jan 2026 - Week 1 [3/1/2026 to 10/1/2026]",
+  "info": "🎓 Professional Tutor | ☀️ Evening Shift: 6 PM - 10 PM Free Slots",
+  "level": [1, 2, 3],
+  "numDay": 6,
+  "num_hour_per_day": 4,
+  "schedule": {
+    "Sat": {
+      "06:00 - 07:00 PM": { "status": "booked", "name": "Hana Youssef", "id": "T2S3V", "phone": "+201112031513", "lvl": "Kids Levels" },
+      "07:00 - 08:00 PM": { "status": "free" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Conversation Level 4", "id": "", "lvl": "", "phone": "" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "Mohamed Sobhy", "id": "G9R0C", "phone": "+201090773062" },
+      "10:00 - 11:00 PM": { "status": "free" }
+    },
+    "Sun": {
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Hamed Saad", "id": "K2E3L", "phone": "+201050010288" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Mohamed Saad", "id": "I9Z9A", "phone": "+201010270947", "lvl": "Business English" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "Ali Salem", "id": "A7K5D", "phone": "+201117793565" },
+      "10:00 - 11:00 PM": { "status": "free" }
+    },
+    "Mon": {
+      "11:00 - 12:00 PM": { "status": "booked", "name": "Karam", "id": "P2G0O", "phone": "+201080367323" },
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Ahmed Yehia", "id": "S9S5Q", "phone": "+201204626682" },
+      "08:00 - 09:00 PM": { "status": "free" },
+      "09:00 - 10:00 PM": { "status": "free" },
+      "10:00 - 11:00 PM": { "status": "booked", "name": "Dina Abdelhamid", "id": "U5U3U", "phone": "+201011002444" }
+    },
+    "Tue": {
+      "06:00 - 07:00 PM": { "status": "booked", "name": "Hana Youssef", "id": "T2S3V", "phone": "+201112031513" },
+      "07:00 - 08:00 PM": { "status": "free" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Mohamed Saad", "id": "I9Z9A", "phone": "+201010270947" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "Mohamed Sobhy", "id": "G9R0C", "phone": "+201090773062" },
+      "10:00 - 11:00 PM": { "status": "free" }
+    },
+    "Wed": {
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Hamed Saad", "id": "K2E3L", "phone": "+201050010288" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Conversation Level 5", "id": "", "lvl": "", "phone": "" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "Ali Salem", "id": "A7K5D", "phone": "+201117793565" },
+      "10:00 - 11:00 PM": { "status": "free" }
+    },
+    "Thu": {
+      "11:00 - 12:00 PM": { "status": "booked", "name": "Karam", "id": "P2G0O", "phone": "+201080367323" },
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Ahmed Yehia", "id": "S9S5Q", "phone": "+201204626682" },
+      "08:00 - 09:00 PM": { "status": "free" },
+      "09:00 - 10:00 PM": { "status": "free" },
+      "10:00 - 11:00 PM": { "status": "booked", "name": "Dina Abdelhamid", "id": "U5U3U", "phone": "+201011002444" }
+    },
+    "Fri": {
+      "07:00 - 08:00 PM": { "status": "free" },
+      "08:00 - 09:00 PM": { "status": "free" },
+      "09:00 - 10:00 PM": { "status": "free" },
+      "10:00 - 11:00 PM": { "status": "free" }
+    }
+  }
+}

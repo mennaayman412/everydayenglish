@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+<link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <title>Professional Teacher Schedule</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        :root { --primary: #2c3e50; --booked: #ff7675; --free: #55efc4; --na: #2d3436; --accent: #3498db; --privacy: #e67e22; --bg: #ffffff; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        
+        #capture-area { background: white; padding: 35px; border-radius: 20px; width: 1250px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); position: relative; }
+        .info-left{display: flex; width: 100%; justify-content: space-between;}
+        .header-main { display: flex; flex-direction: row; align-items: center; text-align: center; border-bottom: 4px solid var(--primary); padding-bottom: 20px; margin-bottom: 20px; }
+        .info-left h1 { margin: 0; color: var(--primary); font-size: 32px; text-transform: capitalize; letter-spacing: 1px; }
+        .teaching-info {margin-left: 50px; padding: 10px 20px; border-radius: 8px; ; color: #df9292; font-weight: bold;}
+        .level-badge { display: inline-block; background: var(--primary); color: white; padding: 4px 10px; border-radius: 6px; font-size: 12px; margin-right: 5px;  }
+
+        .table-wrapper { position: relative; overflow: visible; min-height: 650px; margin-top: 30px; padding-top: 65px; }
+        table { width: 100%; border-collapse: separate; border-spacing: 4px; table-layout: fixed; }
+        
+        #draggableHeader {
+            position: absolute; left: 0; right: 0; top: 0; z-index: 1000;
+            background: var(--primary); border-radius: 8px; cursor: move;
+            user-select: none; display: flex; transition: box-shadow 0.2s;
+            height: 55px; align-items: center;
+        }
+        #draggableHeader.dragging { cursor: grabbing; box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
+        
+        .header-cell { flex: 1; color: white; padding: 10px; text-align: center; font-weight: bold; font-size: 13px; border-right: 1px solid rgba(255,255,255,0.2); }
+        .header-cell:first-child { background: #2d3436; flex: 0 0 150px; border-radius: 8px 0 0 8px; }
+        .header-cell:last-child { border-right: none; border-radius: 0 8px 8px 0; }
+        
+        .time-label { background: #dfe6e9; color: #2c3e50; font-weight: bold; width: 150px; border-radius: 8px; font-size: 11px; text-align: center; }
+        td { padding: 8px; text-align: center; border-radius: 8px; height: 55px; vertical-align: middle; position: relative; }
+        
+        .booked { background: #fff5f5; color: #d63031; border-left: 6px solid #ff7675; font-size: 13px; font-weight: bold; cursor: pointer; }
+        .student-id { display: block; font-size: 9px; color: #ffffff; background: #e74c3c; width: fit-content; margin: 0 auto 3px auto; padding: 1px 5px; border-radius: 4px; }
+        .free { background: #f0fff4; color: #1b8d4e; border: 1px dashed #55efc4; font-size: 11px; font-weight: bold; }
+        .na { background: var(--na); opacity: 0.1; }
+
+        .privacy-hidden span, .privacy-hidden .student-id { visibility: hidden !important; }
+        .privacy-hidden::after { content: "BOOKED"; visibility: visible; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 11px; color: #d63031; font-weight: bold; }
+
+
+        .download-btn { margin: 25px 0; padding: 15px 45px; background: var(--accent); color: white; border: none; border-radius: 50px; cursor: pointer; font-size: 18px; font-weight: bold; }
+        
+        .loading { text-align: center; padding: 50px; font-size: 20px; color: var(--primary); }
+        .error { text-align: center; padding: 50px; font-size: 18px; color: #d63031; background: #fff5f5; border-radius: 10px; margin: 20px; }
+         .header-section {
+            background: var(--card-bg);
+            padding: 20px 40px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            background: var(--secondary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 28px;
+            letter-spacing: -1px;
+        }
+        
+        .academy-info {
+            text-align: left;
+        }
+        
+        .academy-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0 0 4px 0;
+            letter-spacing: -0.5px;
+        }
+        
+        .academy-slogan {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin: 0;
+            font-weight: 400;
+        }
+        
+        h1 { 
+            text-align: center; 
+            color: var(--primary); 
+            margin: 0 0 10px 0; 
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-section">
+            <div class="logo-container">
+                <div class="logo"><img src="logo.png" alt="" width="100%" style="border-radius: inherit;"></div>
+                <div class="academy-info">
+                    <h1 class="academy-name">Every Day English </h1>
+                     <h1 class="academy-name">Academy</h1>
+                    <p class="academy-slogan">Professional Language Education</p>
+                </div>
+            </div>
+        </div>
+
+    <div id="capture-area">
+        <div class="header-main">
+            <div class="info-left">
+                <h1 id="teacherName">Loading...</h1>
+                <div class="teaching-info" id="teachingInfo"></div>
+            </div>
+        </div>
+        
+        <div class="table-wrapper">
+            <div id="draggableHeader">
+                <div class="header-cell">Time Slot</div>
+                <div class="header-cell">Saturday</div>
+                <div class="header-cell">Sunday</div>
+                <div class="header-cell">Monday</div>
+                <div class="header-cell">Tuesday</div>
+                <div class="header-cell">Wednesday</div>
+                <div class="header-cell">Thursday</div>
+                <div class="header-cell">Friday</div>
+            </div>
+            
+            <table id="scheduleTable">
+                <tbody id="tableBody">
+                    <tr><td colspan="8" class="loading">⏳ Loading teacher data...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <button class="download-btn" onclick="downloadImage()">⬇️ Download Schedule as Image</button>
+
+    <script>
+        const timeSlots = [
+            "10:00 - 11:00 AM", "11:00 - 12:00 PM", "12:00 - 01:00 PM", "01:00 - 02:00 PM", 
+            "02:00 - 03:00 PM", "03:00 - 04:00 PM", "04:00 - 05:00 PM", "05:00 - 06:00 PM", 
+            "06:00 - 07:00 PM", "07:00 - 08:00 PM", "08:00 - 09:00 PM", "09:00 - 10:00 PM", 
+            "10:00 - 11:00 PM", "11:00 - 12:00 AM"
+        ];
+        const days = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+        let isPrivacyEnabled = true, isDragging = false, startY = 0, startTop = 0;
+        
+        const draggableHeader = document.getElementById('draggableHeader');
+        const wrapper = document.querySelector('.table-wrapper');
+
+        draggableHeader.addEventListener('mousedown', (e) => { 
+            isDragging = true; startY = e.clientY; startTop = draggableHeader.offsetTop; 
+            draggableHeader.classList.add('dragging'); e.preventDefault(); 
+        });
+
+        document.addEventListener('mousemove', (e) => { 
+            if (!isDragging) return; 
+            const deltaY = e.clientY - startY; 
+            let newTop = Math.max(0, Math.min(startTop + deltaY, wrapper.scrollHeight - 55)); 
+            draggableHeader.style.top = newTop + 'px'; 
+        });
+
+        document.addEventListener('mouseup', () => { isDragging = false; draggableHeader.classList.remove('dragging'); });
+
+        // Get teacher number from URL parameter
+        function getTeacherFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const teacherNum = urlParams.get('teacher') || urlParams.get('t') || urlParams.get('id');
+            
+            if (teacherNum) {
+                return `T${teacherNum}`;
+            }
+            return null;
+        }
+
+        // Auto load on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const teacherId = getTeacherFromURL();
+            if (teacherId) {
+                loadTeacherData(teacherId);
+            } else {
+                document.getElementById('tableBody').innerHTML = `
+                    <tr><td colspan="8" class="error">
+                        ⚠️ No teacher specified in URL<br>
+                        <small>Please add ?teacher=1 (or ?t=1) to the URL</small><br>
+                        <small>Example: page.html?teacher=1</small>
+                    </td></tr>
+                `;
+            }
+        });
+
+        async function loadTeacherData(teacherId) {
+            try {
+                const res = await fetch(`${teacherId}.json`);
+                if (!res.ok) throw new Error(`Teacher ${teacherId} not found`);
+                const data = await res.json();
+                renderTeacher(data);
+            } catch (e) { 
+                document.getElementById('tableBody').innerHTML = `
+                    <tr><td colspan="8" class="error">
+                        ❌ Error loading teacher data<br>
+                        <small>${e.message}</small><br>
+                        <small>Make sure ${teacherId}.json file exists</small>
+                    </td></tr>
+                `;
+            }
+        }
+
+        function renderTeacher(data) {
+            const levelMap = { 1: "Beginner", 2: "Intermediate", 3: "Advanced" };
+            
+            document.getElementById('teacherName').innerText = data.name;
+            
+            const levels = data.level ? data.level.map(l => 
+                `<span class="level-badge">${levelMap[l] || 'Level ' + l}</span>`
+            ).join('') : '';
+            
+            document.getElementById('teachingInfo').innerHTML = levels;
+            
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = "";
+            timeSlots.forEach(time => {
+                let row = document.createElement('tr');
+                let html = `<td class="time-label">${time}</td>`;
+                days.forEach(day => {
+                    const cell = (data.schedule[day] && data.schedule[day][time]) || { status: 'na' };
+                    if (cell.status === 'booked') {
+                        html += `<td class="booked ${isPrivacyEnabled ? 'privacy-hidden' : ''}" onclick="window.open('https://wa.me/${cell.phone.replace(/\D/g,'')}')">
+                                    ${cell.id ? `<span class="student-id">${cell.id}</span>` : ''}
+                                    <span>${cell.name}</span>
+                                 </td>`;
+                    } else if (cell.status === 'free') {
+                        html += `<td class="free">FREE</td>`;
+                    } else { html += `<td class="na"></td>`; }
+                });
+                row.innerHTML = html;
+                tbody.appendChild(row);
+            });
+        }
+
+
+
+        function downloadImage() {
+            html2canvas(document.getElementById('capture-area'), { scale: 2 }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `Schedule.png`;
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>
