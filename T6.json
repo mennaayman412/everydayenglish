@@ -10,7 +10,7 @@
   "info": "🎓 Private Tutor | ☀️ Shift: 10 AM - 6 PM Free Slots",
   "schedule": {
     "Sun": {
-      "10:00 - 11:00 AM": { "status": "free" },
+      "10:00 - 11:00 AM": { "status": "booked", "name": "Ahmed Adel", "id": "V8T3I","lvl": "0", "phone": "+201015632852"},
       "11:00 - 12:00 PM": { "status": "free" },
       "12:00 - 01:00 PM": { "status": "booked", "name": "Ahmed Ibrahim", "id": "S2J9N", "lvl": "1", "phone": "2010231363521" },
       "01:00 - 02:00 PM": { "status": "free" },
@@ -37,7 +37,7 @@
       
     },
     "Wed": {
-      "10:00 - 11:00 AM": { "status": "free" },
+      "10:00 - 11:00 AM": { "status": "booked", "name": "Ahmed Adel", "id": "V8T3I","lvl": "0", "phone": "+201015632852"},
       "11:00 - 12:00 PM": { "status": "free" },
       "12:00 - 01:00 PM": { "status": "booked", "name": "Ahmed Ibrahim", "id": "S2J9N", "lvl": "1", "phone": "2010231363521" },
       "01:00 - 02:00 PM": { "status": "free" },
