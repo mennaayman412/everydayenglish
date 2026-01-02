@@ -37,7 +37,7 @@
       "10:00 - 11:00 PM": { "status": "booked", "name": "اسلام", "id": "3JS0Q", "lvl": "1", "phone": "201016838003" }
     },
     "Mon": {
-      "10:00 - 11:00 AM": { "status": "booked", "name": "منصور مكاوي", "id": "3OIDX", "lvl": "0", "phone": "201111573012" },
+      "10:00 - 11:00 AM":{ "status": "free" } ,
       "11:00 - 12:00 PM": { "status": "free" },
        "12:00 - 01:00 PM": { "status": "free" },
         "01:00 - 02:00 PM": { "status": "free" },
@@ -77,7 +77,7 @@
       "10:00 - 11:00 PM": { "status": "free" }
     },
     "Thu": {
-      "10:00 - 11:00 AM": { "status": "booked", "name": "منصور مكاوي", "id": "3OIDX", "lvl": "0", "phone": "201111573012" },
+      "10:00 - 11:00 AM": { "status": "free" },
       "11:00 - 12:00 PM": { "status": "booked", "name": "سامح محمود", "id": "H4U1V", "lvl": "4", "phone": "201019560019" },
         "12:00 - 01:00 PM": { "status": "free" },
       "01:00 - 02:00 PM": { "status": "free" },
