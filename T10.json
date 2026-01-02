@@ -10,6 +10,7 @@
   "month": "Weekly Schedule - Jan 2026 - Week 1 [3/1/2026 to 10/1/2026]",
   "schedule": {
     "Sat": {
+      
       "07:00 - 08:00 PM": { "status": "free" },
       "08:00 - 09:00 PM": { "status": "booked", "name": "Mohamed Abdelaziz", "id": "I9Y1N", "lvl": "Private", "phone": "2010509599877" },
       "09:00 - 10:00 PM": { "status": "booked", "name": "Mohamed Mansouri", "id": "K0O0U", "lvl": "Private", "phone": "2011527153535" },
