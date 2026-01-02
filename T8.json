@@ -2,46 +2,37 @@
   "name": "Hager Gamal",
   "email": "hagargamal107117@gmail.com",
   "phone": "+20 10 06192384",
-  "ID":"T8",
-  "num_hour_per_day":4,
-  "numDay":4,
-  "level":[1,2],
+  "ID": "T8",
+  "num_hour_per_day": 5,
+  "numDay": 4,
+  "level": [1, 2],
   "month": "Weekly Schedule - Jan 2026 - Week 1 [3/1/2026 to 10/1/2026]",
   "info": "🎓 Professional Tutor | ☀️ Evening Shift: 6 PM - 10 PM Free Slots",
-  
   "schedule": {
     "Sat": {
-      "06:00 - 07:00 PM": { "status": "booked", "name": "Mohamed Abdelkhalek", "id": "U3S7P", "lvl": "3", "phone": "2010253264443" },
-      "07:00 - 08:00 PM": { "status": "free" },
-      "08:00 - 09:00 PM": { "status": "booked", "name": "Ahmed Samir 2", "id": "M8X7I", "lvl": "1", "phone": "2010233010321" },
-      "09:00 - 10:00 PM": { "status": "free" }
+      "06:00 - 07:00 PM": { "status": "booked", "name": "Mohamed Abdelkhalek", "id": "U3S7P", "lvl": "Private", "phone": "2010253264443" },
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Ahmed Adel", "id": "M6L8K", "lvl": "Private", "phone": "9665353063160" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Ahmed Samir 2", "id": "M8X7I", "lvl": "Private", "phone": "2010233010321" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "Fathi Arabi (Import Co.)", "id": "H3B5T", "lvl": "Private", "phone": "201285997445" }
     },
     "Sun": {
-      "06:00 - 07:00 PM": { "status": "booked", "name": "Mohamed Hamdi", "id": "G3S7G", "lvl": "1", "phone": "966506513166" },
-      "07:00 - 08:00 PM": { "status": "booked", "name": "Lobna", "id": "D2D1W", "lvl": "1", "phone": "2011024796231" },
-      "08:00 - 09:00 PM": { "status": "booked", "name": "Tamer Morsi", "id": "W5G9E", "lvl": "1", "phone": "201204345248" },
-      "09:00 - 10:00 PM": { "status": "booked", "name": "Hatem Emad", "id": "N7B6P", "lvl": "2", "phone": "2011270605602" }
-    },
-    "Mon": {
-      "06:00 - 10:00 PM": { "status": "free" }
-    },
+      "06:00 - 07:00 PM": { "status": "booked", "name": "Mohamed Hamdi", "id": "G3S7G", "lvl": "Private", "phone": "966506513166" },
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Lobna", "id": "D2D1W", "lvl": "Private", "phone": "2011024796231" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Tamer Morsi", "id": "W5G9E", "lvl": "Private", "phone": "201204345248" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "Hatem Emad", "id": "N7B6P", "lvl": "Private", "phone": "2011270605602" }
+    }
+    ,
     "Tue": {
-      "06:00 - 07:00 PM": { "status": "booked", "name": "Mohamed Abdelkhalek", "id": "U3S7P", "lvl": "3", "phone": "2010253264443" },
-      "07:00 - 08:00 PM": { "status": "free" },
-      "08:00 - 09:00 PM": { "status": "booked", "name": "Ahmed Samir 2", "id": "M8X7I", "lvl": "1", "phone": "2010233010321" },
-      "09:00 - 10:00 PM": { "status": "free" }
+      "06:00 - 07:00 PM": { "status": "booked", "name": "Mohamed Abdelkhalek", "id": "U3S7P", "lvl": "Private", "phone": "2010253264443" },
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Ahmed Adel", "id": "M6L8K", "lvl": "Private", "phone": "9665353063160" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Ahmed Samir 2", "id": "M8X7I", "lvl": "Private", "phone": "2010233010321" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "Fathi Arabi (Import Co.)", "id": "H3B5T", "lvl": "Private", "phone": "201285997445" }
     },
     "Wed": {
-      "06:00 - 07:00 PM": { "status": "booked", "name": "Mohamed Hamdi", "id": "G3S7G", "lvl": "1", "phone": "966506513166" },
-      "07:00 - 08:00 PM": { "status": "booked", "name": "Lobna", "id": "D2D1W", "lvl": "1", "phone": "2011024796231" },
-      "08:00 - 09:00 PM": { "status": "booked", "name": "Tamer Morsi", "id": "W5G9E", "lvl": "1", "phone": "201204345248" },
-      "09:00 - 10:00 PM": { "status": "booked", "name": "Hatem Emad", "id": "N7B6P", "lvl": "2", "phone": "2011270605602" }
-    },
-    "Thu": {
-      "06:00 - 10:00 PM": { "status": "free" }
-    },
-    "Fri": {
-      "06:00 - 10:00 PM": { "status": "free" }
+      "06:00 - 07:00 PM": { "status": "booked", "name": "Mohamed Hamdi", "id": "G3S7G", "lvl": "Private", "phone": "966506513166" },
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Lobna", "id": "D2D1W", "lvl": "Private", "phone": "2011024796231" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Tamer Morsi", "id": "W5G9E", "lvl": "Private", "phone": "201204345248" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "Hatem Emad", "id": "N7B6P", "lvl": "Private", "phone": "2011270605602" }
     }
   }
 }
