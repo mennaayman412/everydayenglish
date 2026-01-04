@@ -9,44 +9,41 @@
     "info": "☀️ Available: 7 AM - 11 PM",
     "month": "Weekly Schedule - Jan 2026 Week 1 3/1/2026 to 10/1/2026",
     "schedule": {
-        "Sat": {
-            "07:00 - 08:00 PM": { "status": "booked", "name": "يوسف", "id": "J8K7T", "lvl": "Level 0", "phone": "+201552723430" },
-            "08:00 - 09:00 PM": { "status": "booked", "name": "ممدوح", "id": "M0N1P", "lvl": "Level 3", "phone": "+201287454404" },
-            "09:00 - 10:00 PM": { "status": "booked", "name": "رشا", "id": "C3U1Q", "lvl": "Level 3", "phone": "+201202464640" },
-            "10:00 - 11:00 PM": { "status": "booked", "name": "رزقي", "id": "W4V5O", "lvl": "Level 4", "phone": "+201211101112" }
-        },
-        "Sun": {
-            "07:00 - 08:00 PM": { "status": "booked", "name": "د/ حاتم", "id": "H0H1E", "lvl": "Level 4", "phone": "966560499810" },
-            "08:00 - 09:00 PM": { "status": "booked", "name": "صادق", "id": "O4A5F", "lvl": "Level 7", "phone": "01030390651" },
-            "09:00 - 10:00 PM": { "status": "booked", "name": "صابر", "id": "E4A5F", "lvl": "Level 6", "phone": "+201119977666" },
-            "10:00 - 11:00 PM": { "status": "free" }
-        },
-        "Mon": {
-            "07:00 - 08:00 PM": { "status": "booked", "name": "احمد يوسف", "id": "X9N9Q", "lvl": "Level 3", "phone": "+201289767297" },
-            "08:00 - 09:00 PM": { "status": "booked", "name": "محمود احمد", "id": "R5J3X", "lvl": "Level 4", "phone": "01004976226" },
-            "09:00 - 10:00 PM": { "status": "booked", "name": "احمد عباس", "id": "C8P7Z", "lvl": "Level 4", "phone": "01223555343" },
-            "10:00 - 11:00 PM": { "status": "booked", "name": "Group", "id": "", "lvl": "Level 4", "phone": "0" }
-        },
-        "Tue": {
-            "07:00 - 08:00 PM": { "status": "booked", "name": "يوسف", "id": "J8K7T", "lvl": "Level 0", "phone": "+201552723430" },
-            "08:00 - 09:00 PM": { "status": "booked", "name": "ممدوح", "id": "M0N1P", "lvl": "Level 3", "phone": "+201287454404" },
-            "09:00 - 10:00 PM": { "status": "booked", "name": "رشا", "id": "C3U1Q", "lvl": "Level 3", "phone": "+201202464640" },
-            "10:00 - 11:00 PM": { "status": "booked", "name": "رزقي", "id": "W4V5O", "lvl": "Level 4", "phone": "+201211101112" }
-        },
-        "Wed": {
-            "07:00 - 08:00 PM": { "status": "booked", "name": "د/ حاتم", "id": "H0H1E", "lvl": "Level 4", "phone": "966560499810" },
-            "08:00 - 09:00 PM": { "status": "booked", "name": "صادق", "id": "O4A5F", "lvl": "Level 7", "phone": "01030390651" },
-            "09:00 - 10:00 PM": { "status": "booked", "name": "صابر", "id": "E4A5F", "lvl": "Level 6", "phone": "+201119977666" },
-            "10:00 - 11:00 PM": { "status": "booked", "name": "Group", "id": "", "lvl": "Level 4", "phone": "0" }
-        },
-        "Thu": {
-            "07:00 - 08:00 PM": { "status": "booked", "name": "احمد يوسف", "id": "X9N9Q", "lvl": "Level 3", "phone": "+201070533041" },
-            "08:00 - 09:00 PM": { "status": "free" },
-            "09:00 - 10:00 PM": { "status": "booked", "name": "احمد عباس", "id": "C8P7Z", "lvl": "Level 3", "phone": "+201126722811" },
-            "10:00 - 11:00 PM": { "status": "free" }
-        },
-        "Fri": {
-            "07:00 - 11:00 PM": { "status": "na" }
+    "Sat": {
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Youssef", "id": "11J8K", "lvl": "Private", "phone": "201552723430" },
+      "08:00 - 09:00 PM": { "status": "free" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "Rasha", "id": "12C3U", "lvl": "Private", "phone": "201202464640" },
+      "10:00 - 11:00 PM": { "status": "free" }
+    },
+    "Sun": {
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Kids Group", "id": "", "lvl": "", "phone": "" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Dr. Hatem", "id": "16H0H", "lvl": "Private", "phone": "201119977666" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "Irene (Housewife)", "id": "17C4L", "lvl": "Private", "phone": "201222265240" },
+      "10:00 - 11:00 PM": { "status": "free" }
+    },
+    "Mon": {
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Ahmed Youssef", "id": "13X9N", "lvl": "Private", "phone": "201070533041" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Howayda Salama (Teacher)", "id": "18L6Y", "lvl": "Private", "phone": "201168515567" },
+      "09:00 - 10:00 PM": { "status": "free" },
+      "10:00 - 11:00 PM": { "status": "booked", "name": "Mohamed & Mina", "id": "14H4R/15L1P", "lvl": "Private", "phone": "01004976226/01223555343" }
+    },
+    "Tue": {
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Youssef", "id": "11J8K", "lvl": "Private", "phone": "201552723430" },
+      "08:00 - 09:00 PM": { "status": "free" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "Rasha", "id": "12C3U", "lvl": "Private", "phone": "201202464640" },
+      "10:00 - 11:00 PM": { "status": "free" }
+    },
+    "Wed": {
+      "07:00 - 08:00 PM":{ "status": "booked", "name": "Kids Group", "id": "", "lvl": "", "phone": "" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Dr. Hatem", "id": "16H0H", "lvl": "Private", "phone": "201119977666" },
+      "09:00 - 10:00 PM": { "status": "booked", "name": "Irene (Housewife)", "id": "17C4L", "lvl": "Private", "phone": "201222265240" },
+      "10:00 - 11:00 PM": { "status": "booked", "name": "Mohamed & Mina", "id": "14H4R/15L1P", "lvl": "Private", "phone": "01004976226/01223555343" }
+    },
+    "Thu": {
+      "07:00 - 08:00 PM": { "status": "booked", "name": "Ahmed Youssef", "id": "13X9N", "lvl": "Private", "phone": "201070533041" },
+      "08:00 - 09:00 PM": { "status": "booked", "name": "Howayda Salama (Teacher)", "id": "18L6Y", "lvl": "Private", "phone": "201168515567" },
+      "09:00 - 10:00 PM": { "status": "free" },
+      "10:00 - 11:00 PM": { "status": "free" }
         }
     }
 }
