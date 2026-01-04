@@ -3,7 +3,7 @@
   "email": "hagargamal107117@gmail.com",
   "phone": "+20 10 06192384",
   "ID": "T8",
-  "num_hour_per_day": 5,
+  "num_hour_per_day": 4,
   "numDay": 4,
   "level": [1, 2],
   "month": "Weekly Schedule - Jan 2026 - Week 1 [3/1/2026 to 10/1/2026]",
@@ -36,3 +36,4 @@
     }
   }
 }
+
