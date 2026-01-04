@@ -3,7 +3,7 @@
   "email": "julie.tutor@example.com",
   "phone": "+20 10231363521",
   "ID":"T6",
-  "num_hour_per_day":6,
+  "num_hour_per_day":4,
   "numDay":6,
   "level":[1,2],
   "month": "Weekly Schedule - Jan 2026 - Week 1 [3/1/2026 to 10/1/2026]",
@@ -30,7 +30,7 @@
       "02:00 - 03:00 PM": { "status": "free" },
       "03:00 - 04:00 PM": { "status": "free" },
       "04:00 - 05:00 PM": { "status": "booked", "name": "Mohamed Hatem", "id": "G5W0K", "lvl": "5", "phone": "2010195452355" },
-      "05:00 - 06:00 PM": { "status": "free" },
+      "05:00 - 06:00 PM": { "status": "booked", "name": "Abdelmoneim", "id": "77J0S", "lvl": "Private", "phone": "201141332722" },
       "06:00 - 07:00 PM": { "status": "booked", "name": "Rashad Mohamed", "id": "W3T9W", "lvl": "2", "phone": "2010630205202" },
       "08:00 - 09:00 PM": { "status": "booked", "name": "Mostafa Mohamed", "id": "H3D3T", "lvl": "1", "phone": "2010307506611" },
       "09:00 - 10:00 PM": { "status": "booked", "name": "Mostafa El-Sayed", "id": "T0V7T", "lvl": "2", "phone": "2010240583502" }
@@ -44,7 +44,7 @@
       "02:00 - 03:00 PM": { "status": "booked", "name": "Maged", "id": "N3Z5R", "lvl": "1", "phone": "2012069979921" },
       "03:00 - 04:00 PM": { "status": "free" },
       "04:00 - 05:00 PM": { "status": "booked", "name": "Islam El-Sayed", "id": "M0M3K", "lvl": "3", "phone": "2012219653813" },
-      "05:00 - 06:00 PM": { "status": "free" },
+      "05:00 - 06:00 PM": { "status": "booked", "name": "Abdelmoneim", "id": "77J0S", "lvl": "Private", "phone": "201141332722" },
       "08:00 - 09:00 PM": { "status": "booked", "name": "Ali Ahmed", "id": "H0K4H", "lvl": "0", "phone": "2010178730350" }
     },
     "Thu": {
