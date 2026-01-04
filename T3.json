@@ -23,7 +23,7 @@
       "10:00 - 11:00 PM": { "status": "booked", "name": "اسلام", "id": "S0Q3O", "lvl": "1", "phone": "201016838003" }
     },
     "Sun": {
-      "10:00 - 11:00 AM": { "status": "free" },
+      "10:00 - 11:00 AM":{ "status": "booked", "name": "Hala Mohamed", "id": "A9T5S", "lvl": "Private", "phone": "201017463883" },
       "11:00 - 12:00 PM": { "status": "free" },
       "12:00 - 01:00 PM": { "status": "free" },
       "01:00 - 02:00 PM": { "status": "booked", "name": "أحمد محمد", "id": "IDE0A", "lvl": "5", "phone": "201114777547" },
@@ -63,7 +63,7 @@
 
     },
     "Wed": {
-    "10:00 - 11:00 AM": { "status": "free" },
+    "10:00 - 11:00 AM": { "status": "booked", "name": "Hala Mohamed", "id": "A9T5S", "lvl": "Private", "phone": "201017463883" },
       "11:00 - 12:00 PM": { "status": "free" },
       "12:00 - 01:00 PM": { "status": "free" },
       "01:00 - 02:00 PM": { "status": "booked", "name": "أحمد محمد", "id": "IDE0A", "lvl": "5", "phone": "201114777547" },
